@@ -1,0 +1,101 @@
+local GodX = Instance.new("ScreenGui")
+local GodmodeMain = Instance.new("Frame")
+local Godmode = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local Unban = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Close = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UICorner_4 = Instance.new("UICorner")
+local TitleGodX = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+
+
+GodX.Name = "God X"
+GodX.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+GodX.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+GodmodeMain.Name = "GodmodeMain"
+GodmodeMain.Parent = GodX
+GodmodeMain.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+GodmodeMain.Position = UDim2.new(0.551834106, 0, 0.210989013, 0)
+GodmodeMain.Size = UDim2.new(0, 176, 0, 151)
+GodmodeMain.Active = true
+GodmodeMain.Draggable = true
+
+Godmode.Name = "Godmode"
+Godmode.Parent = GodmodeMain
+Godmode.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+Godmode.Position = UDim2.new(0, 0, 0.519265473, 0)
+Godmode.Size = UDim2.new(0, 176, 0, 29)
+Godmode.Font = Enum.Font.SourceSansBold
+Godmode.Text = "Godmode"
+Godmode.TextColor3 = Color3.fromRGB(0, 0, 0)
+Godmode.TextSize = 25.000
+Godmode.MouseButton1Click:Connect(function()
+	game:GetService("Players").LocalPlayer.Character.BodyEffects:FindFirstChild('BreakingParts'):Destroy()
+end)
+
+UICorner.CornerRadius = UDim.new(0, 9)
+UICorner.Parent = Godmode
+
+Unban.Name = "Unban"
+Unban.Parent = GodmodeMain
+Unban.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
+Unban.Position = UDim2.new(0, 0, 0.262470365, 0)
+Unban.Size = UDim2.new(0, 176, 0, 30)
+Unban.Font = Enum.Font.SourceSansBold
+Unban.Text = "Unban"
+Unban.TextColor3 = Color3.fromRGB(0, 0, 0)
+Unban.TextSize = 25.000
+Unban.MouseButton1Down:connect(function()
+	game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health = 0
+	game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function()
+		Instance.new("Folder",game:GetService("Players").LocalPlayer.Character).Name = ("FULLY_LOADED_CHAR")
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("BodyEffects"):WaitForChild("Dead"):Remove()
+		Instance.new("BoolValue",game:GetService("Players").LocalPlayer.Character:WaitForChild("BodyEffects")).Name = ("Dead")
+		repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("BodyEffects"):findFirstChild("Dead")
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("BodyWidthScale").Value = 0.5
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("HeadScale").Value = 1
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("BodyHeightScale").Value = 1
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("BodyDepthScale").Value = 0.5
+		game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):WaitForChild("BodyTypeScale").Value = 0.01
+	end)
+end)
+
+
+UICorner_2.CornerRadius = UDim.new(0, 9)
+UICorner_2.Parent = Unban
+
+Close.Name = "Close"
+Close.Parent = GodmodeMain
+Close.BackgroundColor3 = Color3.fromRGB(103, 0, 0)
+Close.Position = UDim2.new(0, 0, 0.775433064, 0)
+Close.Size = UDim2.new(0, 176, 0, 28)
+Close.Font = Enum.Font.SourceSansBold
+Close.Text = "CLOSE"
+Close.TextColor3 = Color3.fromRGB(0, 0, 0)
+Close.TextSize = 25.000
+Close.MouseButton1Down:connect(function()
+	GodmodeMain.Visible = false
+end)
+
+UICorner_3.CornerRadius = UDim.new(0, 9)
+UICorner_3.Parent = Close
+
+UICorner_4.CornerRadius = UDim.new(0, 9)
+UICorner_4.Parent = GodmodeMain
+
+TitleGodX.Name = "TitleGod X"
+TitleGodX.Parent = GodmodeMain
+TitleGodX.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TitleGodX.BackgroundTransparency = 1.000
+TitleGodX.Position = UDim2.new(0.0517224409, 0, 0, 0)
+TitleGodX.Size = UDim2.new(0, 156, 0, 39)
+TitleGodX.Font = Enum.Font.SourceSansBold
+TitleGodX.Text = "God X"
+TitleGodX.TextColor3 = Color3.fromRGB(135, 135, 135)
+TitleGodX.TextSize = 40.000
+
+UICorner_5.CornerRadius = UDim.new(0, 9)
+UICorner_5.Parent = TitleGodX
